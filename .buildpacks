@@ -1,2 +1,3 @@
 https://github.com/ddollar/heroku-buildpack-apt
+https://github.com/jtarchie/capybara-webkit-buildpack.git
 https://github.com/heroku/heroku-buildpack-ruby

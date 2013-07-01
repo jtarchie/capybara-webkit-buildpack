@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# fail fast
+set -e
+
+# debug
+# set -x
+
+# parse and derive params
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+echo "-----> Exporting QMAKE"
+export QMAKE="$BUILD_DIR/.apt/usr/bin/qmake-qt4"
+echo "-----> QMAKE=$QMAKE"

@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+BUILD_DIR = ARGV.first
+INCLUDE_PATH = "#{BUILD_DIR}/.apt/usr/include:#{ENV['INCLUDE_PATH']}:#{BUILD_DIR}/.apt/usr/share/qt4/include"
+
+require 'yaml'
+puts({
+  'config_vars' => {
+    'QMAKE' => "#{BUILD_DIR}/.apt/usr/bin/qmake-qt4",
+    'QTLIB' => "#{BUILD_DIR}/.apt/usr/share/qt4/",
+    'SPEC' => "#{BUILD_DIR}/.apt/usr/share/qt4/mkspecs/linux-g++",
+    'PATH' => "#{BUILD_DIR}/.apt/usr/share/qt4/mkspecs/:#{BUILD_DIR}/.apt/usr/bin:#{ENV['PATH']}",
+    'LD_LIBRARY_PATH' => "#{BUILD_DIR}/.apt/usr/lib:#{ENV['LD_LIBRARY_PATH']}",
+    'INCLUDE_PATH' => INCLUDE_PATH,
+    'CPATH' => INCLUDE_PATH,
+    'CPPPATH' => INCLUDE_PATH
+  }
+}.to_yaml)
